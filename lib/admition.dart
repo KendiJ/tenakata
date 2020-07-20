@@ -7,23 +7,28 @@ class AdmissibilityPage extends StatefulWidget {
 
 class _AdmissibilityPageState extends State<AdmissibilityPage> {
 
-  int _counter = 0;
-  bool checkBoxValue = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.cyan,
+        backgroundColor: Colors.deepPurple,
         title: Text("Tenaka University Admissability"),
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.school),
-            iconSize: 50,
+            iconSize: 50, onPressed: () {  },
           )
         ],
       ),
-      body: Container(),
+      body: Container(
+        child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[],
+      ),
+    )
     );
+    
+    
   }
 }

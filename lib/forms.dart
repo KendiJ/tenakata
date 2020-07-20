@@ -13,11 +13,11 @@ class Forms extends StatefulWidget {
 class FormScreenState extends State<Forms> {
 
   String _name;
-  String _email;
-  String _password;
-  String _url;
-  String _phoneNumber;
-  String _foods;
+  String _age;
+  String _maritalStatus;
+  String _gps;
+  String _photo;
+  String _iq;
 
   // creating global keys to hold data
 
@@ -26,115 +26,145 @@ class FormScreenState extends State<Forms> {
   // add a function that returns a widget from my widget tree start with _build to be consistent
 
   Widget _buildName() {
-    return TextFormField(
-      decoration: InputDecoration(labelText: 'Name:'),
-      // ignore: missing_return
-      validator: (String value){
-        if (value.isEmpty){
-          return 'Name is required';
-        }
-      },
-      // add a parameter for the mane too be saved.
-      onSaved: (String value){
-        _name = value;
-      },
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: TextFormField(
+        style: TextStyle(fontSize: 17, color:Colors.black, fontWeight: FontWeight.bold
+        ),
+        decoration: InputDecoration(labelText: 'Name:'),
+        // ignore: missing_return
+        validator: (String value){
+          if (value.isEmpty){
+            return 'Name is required';
+          }
+        },
+        // add a parameter for the mane too be saved.
+        onSaved: (String value){
+          _name = value;
+        },
+      ),
     );
   }
 
   Widget _buildAge() {
-    return TextFormField(
-      decoration: InputDecoration(labelText: 'Age:'),
-      keyboardType: TextInputType.number,
-      // ignore: missing_return
-      validator: (String value){
-        if (value.isEmpty){
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: TextFormField(
+        style: TextStyle(fontSize: 17, color:Colors.black, fontWeight: FontWeight.bold
+        ),
+        decoration: InputDecoration(labelText: 'Age:'),
+        keyboardType: TextInputType.number,
+        // ignore: missing_return
+        validator: (String value){
+          if (value.isEmpty){
 
-          int age = int.tryParse(value);
+            int age = int.tryParse(value);
 
-          if (age == null || age <= 0) {
-            return 'Age must be greater than 0';
+            if (age == null || age <= 0) {
+              return 'Age must be greater than 0';
+            }
+
           }
-
-        }
-      },
-      // add a parameter for the mane too be saved.
-      onSaved: (String value){
-        _password = value;
-      },
+        },
+        // add a parameter for the mane too be saved.
+        onSaved: (String value){
+          _age = value;
+        },
+      ),
     );
   }
 
-  Widget _buildPassword() {
-    return TextFormField(
-      decoration: InputDecoration(labelText: 'Marital Status'),
-      keyboardType: TextInputType.visiblePassword,
-      // ignore: missing_return
-      validator: (String value){
-        if (value.isEmpty){
-          return 'Password is required';
-        }
-      },
-      // add a parameter for the mane too be saved.
-      onSaved: (String value){
-        _password = value;
-      },
-    );
-  }
-
-  Widget _buildUrl() {
-    return TextFormField(
-      decoration: InputDecoration(labelText: 'GPS Location'),
-      keyboardType: TextInputType.url,
-      // ignore: missing_return
-      validator: (String value){
-        if (value.isEmpty){
-          return 'URL is required';
-        }
-      },
-      // add a parameter for the mane too be saved.
-      onSaved: (String value){
-        _url = value;
-      },
-    );
-  }
-
-  Widget _buildPhoneNumber() {
-    return TextFormField(
-    decoration: InputDecoration(labelText: 'Phone Number'),
-    keyboardType: TextInputType.phone,
-    // ignore: missing_return
-    validator: (String value){
-      if (value.isEmpty){
-        return 'Phone Number is required';
-      }
-    },
-    // add a parameter for the mane too be saved.
-    onSaved: (String value){
-      _phoneNumber = value;
-    },
-  );
-  }
-
-  Widget _buildFoods() {
-    return TextFormField(
-      decoration: InputDecoration(labelText: 'IQ Test Result'),
-      keyboardType: TextInputType.number,
-      // ignore: missing_return
-      validator: (String value){
-        if (value.isEmpty){
-
-          int foods = int.tryParse(value);
-
-          if (foods == null || foods <= 0) {
-            return 'Foods must be greater than 0';
+  Widget _buildMaritalStatus() {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: TextFormField(
+        style: TextStyle(fontSize: 17, color:Colors.black, fontWeight: FontWeight.bold
+        ),
+        decoration: InputDecoration(labelText: 'Marital Status:'),
+        keyboardType: TextInputType.text,
+        // ignore: missing_return
+        validator: (String value){
+          if (value.isEmpty){
+            return 'Marital status is required';
           }
+        },
+        // add a parameter for the mane too be saved.
+        onSaved: (String value){
+          _maritalStatus = value;
+        },
+      ),
+    );
+  }
 
+  Widget _buildGps() {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: TextFormField(
+        style: TextStyle(fontSize: 17, color:Colors.black, fontWeight: FontWeight.bold
+        ),
+        decoration: InputDecoration(labelText: 'GPS Location:'),
+        keyboardType: TextInputType.url,
+        // ignore: missing_return
+        validator: (String value){
+          if (value.isEmpty){
+            return 'GPS Location is required';
+          }
+        },
+        // add a parameter for the mane too be saved.
+        onSaved: (String value){
+          _gps = value;
+        },
+      ),
+    );
+  }
+
+  Widget _buildPhoto() {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: TextFormField(
+        style: TextStyle(fontSize: 17, color:Colors.black, fontWeight: FontWeight.bold
+        ),
+      decoration: InputDecoration(labelText: 'Photo: '),
+      keyboardType: TextInputType.phone,
+      // ignore: missing_return
+      validator: (String value){
+        if (value.isEmpty){
+          return 'Please insert your photo';
         }
       },
       // add a parameter for the mane too be saved.
       onSaved: (String value){
-        _password = value;
+        _photo = value;
       },
+  ),
+    );
+  }
+
+  Widget _buildIq() {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: TextFormField(
+        style: TextStyle(fontSize: 17, color:Colors.black, fontWeight: FontWeight.bold
+        ),
+        decoration: InputDecoration(labelText: 'IQ Test Result:'),
+        keyboardType: TextInputType.number,
+        // ignore: missing_return
+        validator: (String value){
+          if (value.isEmpty){
+
+            int iq = int.tryParse(value);
+
+            if (iq == null || iq <= 0) {
+              return 'IQ must be greater than 0';
+            }
+
+          }
+        },
+        // add a parameter for the mane too be saved.
+        onSaved: (String value){
+          _iq = value;
+        },
+      ),
     );
   }
 
@@ -154,10 +184,10 @@ class FormScreenState extends State<Forms> {
             children: <Widget>[
               _buildName(),
               _buildAge(),
-              _buildPassword(),
-              _buildUrl(),
-              _buildPhoneNumber(),
-              _buildFoods(),
+              _buildMaritalStatus(),
+              _buildGps(),
+              _buildPhoto(),
+              _buildIq(),
               // add a space using SizedBox
               SizedBox(height: 100,),
               RaisedButton(
@@ -171,11 +201,11 @@ class FormScreenState extends State<Forms> {
                   _formKey.currentState.save();
 
                   print(_name);
-                  print(_email);
-                  print(_password);
-                  print(_url);
-                  print(_phoneNumber);
-                  print(_foods);
+                  print(_age);
+                  print(_maritalStatus);
+                  print(_gps);
+                  print(_photo);
+                  print(_iq);
                 } ,
               )
             ],
