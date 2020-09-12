@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tenakata_uni/forms.dart';
+import 'package:tenakata_uni/forms/forms.dart';
 
 void main() => runApp(MyApp());
 
